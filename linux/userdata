@@ -4,3 +4,7 @@
 #
 hostnamectl set-hostname ${appliedhostname}.${domain_name}
 yum update -y
+#
+# Install custom additional set-up
+#
+${supplementary_user_data}
