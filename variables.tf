@@ -57,5 +57,10 @@ variable "supplementary_user_data" {
   description = "Supplementary shell script commands for adding to user data"
   default = "" 
 }
-
-
+#
+# Vars for optional IAM policiees
+#
+variable "iamssmpolicy" {
+  description = "attach Global Role arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+  default = "1"
+}
