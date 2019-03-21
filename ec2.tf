@@ -32,7 +32,7 @@ resource "aws_instance" "ec2" {
   # Tags
   #-----------------------------------------------------------------
   tags {
-    Name            = "${var.environment}_jenkins_slave_ec2"
+    Name            = "${var.hostname_prefix}${format("%03d", count.index + 1 + var.hostname_offset)}"
     "environment"   = "${var.environment}"
     "contact"       = "${var.contact}"
     "orchestration" = "${var.orchestration}"
