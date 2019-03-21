@@ -44,7 +44,7 @@ variable "hostname_offset" {
 }
 
 variable "domain_name" {}
-variable "private_subnets" {}
+variable "subnet_id" {}
 variable "availability_zones" {}
 variable "zone_id" {}
 variable "orchestration" {}

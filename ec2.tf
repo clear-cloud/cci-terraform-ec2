@@ -6,7 +6,7 @@ resource "aws_instance" "ec2" {
 
   availability_zone = "${element(split(",", var.availability_zones), count.index)}"
   key_name          = "${var.key_name}"
-  subnet_id         = "${element(split(",", var.private_subnets), count.index)}"
+  subnet_id         = "${element(split(",", var.subnet_id), count.index)}"
   count             = "${var.count}"
   instance_type     = "${var.instance_type}"
   ebs_optimized     = "${var.ebs_optimized}"
