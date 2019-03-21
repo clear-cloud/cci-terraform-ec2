@@ -9,7 +9,7 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 }
 
 resource "aws_iam_role" "ec2_role" {
-  name = "ec2.${count.index + var.hostname_offset}.ec2-slave-role.${var.environment}"
+  name = "ec2.${var.hostname_prefix}${format("%03d", count.index + 1 + var.hostname_offset)}.${var.domain_name}.${var.environment}.${count.index}"
   path = "/"
 
   assume_role_policy = <<EOF
