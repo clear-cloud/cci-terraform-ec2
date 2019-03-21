@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+# Set hostname, ensure it remains
+#
+hostnamectl set-hostname ${appliedhostname}.${domain_name}
+yum update -y
