@@ -1,5 +1,5 @@
-variable "ssh_access_sgs" {
-  default = ""
+variable "ssh_access_rule_count" {
+  default = "0"
 }
 
 variable "ebs_optimized" {
