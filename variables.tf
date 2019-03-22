@@ -1,4 +1,4 @@
-variable "ssh_access_rule_count" {
+variable "ssh_access_sgs" {
   default = "0"
 }
 
