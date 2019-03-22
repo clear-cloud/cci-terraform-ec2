@@ -1,3 +1,7 @@
+variable "sshaccess_sgs" {
+ default = ""
+}
+
 variable "ebs_optimized" {
   description = "Allows for setting EBS optimized settings"
   default = "false"
