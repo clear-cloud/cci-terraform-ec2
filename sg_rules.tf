@@ -2,7 +2,7 @@
 # Loop var.ssh_access_sgs
 #
 resource "aws_security_group_rule" "sshaccess" {
-  count       = "${length(split(",",var.sshaccess_sgs))}"
+  count       = "${length(split(",",var.ssh_access_sgs))}"
   type        = "ingress"
   from_port   = "22"
   to_port     = "22"

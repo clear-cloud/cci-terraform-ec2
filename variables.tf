@@ -1,4 +1,4 @@
-variable "sshaccess_sgs" {
+variable "ssh_access_sgs" {
  default = ""
 }
 
