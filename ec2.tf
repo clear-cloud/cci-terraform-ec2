@@ -3,6 +3,7 @@
 #---------------------------------------------------------------
 resource "aws_instance" "ec2" {
   depends_on = ["aws_security_group.ec2_sg"]
+  depends_on = ["aws_security_group.ec2_ssh_sg"]
 
   availability_zone = "${element(split(",", var.availability_zones), count.index)}"
   key_name          = "${var.key_name}"
