@@ -10,6 +10,7 @@ resource "aws_instance" "ec2" {
   count             = "${var.count}"
   instance_type     = "${var.instance_type}"
   ebs_optimized     = "${var.ebs_optimized}"
+
   root_block_device {
     volume_type = "gp2"
     volume_size = "${var.root_volume_size}"
@@ -21,7 +22,7 @@ resource "aws_instance" "ec2" {
   # Apply userdata and AMI only once
   #  
   lifecycle {
-    ignore_changes = ["user_data","ami" ]
+    ignore_changes = ["user_data", "ami"]
   }
 
   ami                    = "${var.ami}"
@@ -38,7 +39,6 @@ resource "aws_instance" "ec2" {
     "orchestration" = "${var.orchestration}"
   }
 }
-
 
 #
 # User data rendered

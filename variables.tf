@@ -1,10 +1,10 @@
 variable "ssh_access_sgs" {
- default = ""
+  default = ""
 }
 
 variable "ebs_optimized" {
   description = "Allows for setting EBS optimized settings"
-  default = "false"
+  default     = "false"
 }
 
 variable "ami" {
@@ -34,6 +34,7 @@ variable "root_volume_size" {
 }
 
 variable "contact" {}
+
 variable "count" {
   description = "Number of servers to build"
   default     = "1"
@@ -52,6 +53,7 @@ variable "subnet_id" {}
 variable "availability_zones" {}
 variable "zone_id" {}
 variable "orchestration" {}
+
 variable "encrypted" {
   description = "Enables / Disables encryption of volumes"
   default     = "false"
@@ -59,12 +61,13 @@ variable "encrypted" {
 
 variable "supplementary_user_data" {
   description = "Supplementary shell script commands for adding to user data"
-  default = "" 
+  default     = ""
 }
+
 #
 # Vars for optional IAM policiees
 #
 variable "iamssmpolicy" {
   description = "attach Global Role arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
-  default = "1"
+  default     = "1"
 }

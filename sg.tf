@@ -45,4 +45,3 @@ resource "aws_security_group" "ec2_ssh_sg" {
     "orchestration" = "${var.orchestration}"
   }
 }
-

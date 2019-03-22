@@ -2,20 +2,14 @@
 # Loop var.ssh_access_sgs
 #
 resource "aws_security_group_rule" "sshaccess" {
-  count       = "${length(split(",",var.ssh_access_sgs))}"
-  type        = "ingress"
-  from_port   = "22"
-  to_port     = "22"
-  protocol    = "TCP"
+  count                    = "${var.ssh_access_sgs != "" ? {length(split(",",var.ssh_access_sgs))} : 0}"
+  type                     = "ingress"
+  from_port                = "22"
+  to_port                  = "22"
+  protocol                 = "TCP"
   source_security_group_id = "${element(split(",",var.ssh_access_sgs),count.index)}"
-  security_group_id = "${aws_security_group.ec2_ssh_sg.id}"
+  security_group_id        = "${aws_security_group.ec2_ssh_sg.id}"
 }
-
-
-
-
-
-
 
 #
 # Allow ec2 SELF
