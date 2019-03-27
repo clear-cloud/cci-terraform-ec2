@@ -1,3 +1,6 @@
+variable "tier" {
+  default = "tier"
+}
 variable "ips" {
   type    = "map"
   default = {}

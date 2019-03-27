@@ -74,6 +74,7 @@ resource "aws_instance" "ec2" {
     "environment"   = "${var.environment}"
     "contact"       = "${var.contact}"
     "orchestration" = "${var.orchestration}"
+    "tier"          = "${var.tier}"
   }
 }
 
