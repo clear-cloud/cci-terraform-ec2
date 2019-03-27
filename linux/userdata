@@ -3,8 +3,21 @@
 # Set hostname, ensure it remains
 #
 hostnamectl set-hostname ${appliedhostname}.${domain_name}
-yum update -y
 #
 # Install custom additional set-up
 #
 ${supplementary_user_data}
+#
+# Install CodeDeploy agent
+#
+install -y ruby
+yum install -y wget
+wget https://aws-codedeploy-${aws_region}.s3.amazonaws.com/latest/install
+chmod +x ./install
+./install auto
+#
+# Install SSM agent
+#
+yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+systemctl enable amazon-ssm-agent
+systemctl start amazon-ssm-agent
