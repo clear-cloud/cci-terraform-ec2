@@ -17,6 +17,39 @@ resource "aws_instance" "ec2" {
     volume_type = "gp2"
     volume_size = "${var.root_volume_size}"
   }
+  
+  ephemeral_block_device {
+    device_name = "xvdd"
+    virtual_name = "ephemeral0"
+  }
+  ephemeral_block_device {
+    device_name = "xvde"
+    virtual_name = "ephemeral1"
+  }
+  ephemeral_block_device {
+    device_name = "xvdf"
+    virtual_name = "ephemeral2"
+  }
+ ephemeral_block_device {
+    device_name = "xvdg"
+    virtual_name = "ephemeral3"
+  }
+  ephemeral_block_device {
+    device_name = "xvdh"
+    virtual_name = "ephemeral4"
+  }
+  ephemeral_block_device {
+    device_name = "xvdi"
+    virtual_name = "ephemeral5"
+  }
+  ephemeral_block_device {
+    device_name = "xvdj"
+    virtual_name = "ephemeral6"
+  }
+  ephemeral_block_device {
+    device_name = "xvdk"
+    virtual_name = "ephemeral7"
+  }
 
   user_data = "${element(data.template_file.userdata.*.rendered, count.index)}"
 
