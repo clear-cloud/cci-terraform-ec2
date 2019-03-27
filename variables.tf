@@ -1,8 +1,10 @@
 variable "ips" {
-  type = "map" 
+  type    = "map"
   default = ""
 }
+
 variable "aws_region" {}
+
 variable "ssh_access_sgs" {
   default = "0"
 }
