@@ -31,7 +31,7 @@ resource "aws_instance" "ec2" {
   vpc_security_group_ids = ["${aws_security_group.ec2_sg.id}", "${aws_security_group.ec2_ssh_sg.id}"]
   iam_instance_profile   = "${aws_iam_instance_profile.ec2_profile.id}"
 
-  private_ip = "${lookup(var.ips,count.index, 0)}"
+  private_ip = "${lookup(var.ips,count.index, unset)}"
 
   #-----------------------------------------------------------------
   # Tags
