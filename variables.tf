@@ -81,3 +81,14 @@ variable "iamssmpolicy" {
   description = "attach Global Role arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
   default     = "1"
 }
+
+variable "iams3ropolicy" {
+  description = "attach Global Role arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+  default     = "1"
+}
+
+
+
+
+
+
