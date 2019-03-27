@@ -10,7 +10,7 @@ ${supplementary_user_data}
 #
 # Install CodeDeploy agent
 #
-install -y ruby
+yum install -y ruby
 yum install -y wget
 wget https://aws-codedeploy-${aws_region}.s3.amazonaws.com/latest/install
 chmod +x ./install
