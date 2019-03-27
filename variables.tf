@@ -1,7 +1,4 @@
 variable "ips" {}
-variable "count" {
-  default = "1"
-}
 variable "aws_region" {}
 variable "ssh_access_sgs" {
   default = "0"
