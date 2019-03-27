@@ -1,4 +1,5 @@
 variable "ips" {
+  type = "map" 
   default = ""
 }
 variable "aws_region" {}
