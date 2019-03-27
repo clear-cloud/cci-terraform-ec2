@@ -57,7 +57,7 @@ resource "aws_instance" "ec2" {
   # Apply userdata and AMI only once
   #  
   lifecycle {
-    ignore_changes = ["user_data", "ami"]
+    ignore_changes = ["user_data", "ami", "ephemeral_block_device"]
   }
 
   ami                    = "${var.ami}"
