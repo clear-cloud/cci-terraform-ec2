@@ -5,6 +5,7 @@ resource "aws_instance" "ec2" {
   depends_on = ["aws_security_group.ec2_sg"]
   depends_on = ["aws_security_group.ec2_ssh_sg"]
 
+  count             = "${var.count}"
   availability_zone = "${element(split(",", var.availability_zones), count.index)}"
   key_name          = "${var.key_name}"
   subnet_id         = "${element(split(",", var.subnet_id), count.index)}"
@@ -29,7 +30,9 @@ resource "aws_instance" "ec2" {
   ami                    = "${var.ami}"
   vpc_security_group_ids = ["${aws_security_group.ec2_sg.id}", "${aws_security_group.ec2_ssh_sg.id}"]
   iam_instance_profile   = "${aws_iam_instance_profile.ec2_profile.id}"
-
+  
+  private_ip = "${lookup(var.ips,count.index)}"
+  
   #-----------------------------------------------------------------
   # Tags
   #-----------------------------------------------------------------
