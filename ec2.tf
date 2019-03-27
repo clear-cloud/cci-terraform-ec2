@@ -54,5 +54,6 @@ data "template_file" "userdata" {
     domain_name             = "${var.domain_name}"
     environment             = "${var.environment}"
     supplementary_user_data = "${var.supplementary_user_data}"
+    aws_region              = "${var.aws_region}"
   }
 }
