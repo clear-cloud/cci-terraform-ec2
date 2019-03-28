@@ -2,6 +2,9 @@
 # Loop var.ssh_access_sgs
 #
 resource "aws_security_group_rule" "sshaccess" {
+  depends_on = ["aws_security_group.ec2_sg"]
+  depends_on = ["aws_security_group.ec2_ssh_sg"]
+  
   count                    = "${var.count}"
   #count                    = "${(length(split(",",var.ssh_access_sgs))) > 0 ? (length(split(",",var.ssh_access_sgs))) : 0}"
   type                     = "ingress"
@@ -18,6 +21,8 @@ resource "aws_security_group_rule" "sshaccess" {
 # Allow ec2 SELF
 #
 resource "aws_security_group_rule" "ec2_self_ingress" {
+    depends_on = ["aws_security_group.ec2_sg"]
+  depends_on = ["aws_security_group.ec2_ssh_sg"]
   count                    = "${var.count}"
   type                     = "ingress"
   from_port                = 0
