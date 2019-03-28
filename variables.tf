@@ -28,7 +28,7 @@ variable "platform" {
 
 variable "vol2_size" {
   description = "size of secondary volume"
-  default     = "50"
+  default     = "100"
 }
 
 variable "vpc_id" {}
