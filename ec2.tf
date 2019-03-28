@@ -19,35 +19,35 @@ resource "aws_instance" "ec2" {
   }
   
   ephemeral_block_device {
-    device_name = "xvee"
+    device_name = "xvdf"
     virtual_name = "ephemeral0"
   }
   ephemeral_block_device {
-    device_name = "xvef"
+    device_name = "xvdg"
     virtual_name = "ephemeral1"
   }
   ephemeral_block_device {
-    device_name = "xveg"
+    device_name = "xvdh"
     virtual_name = "ephemeral2"
   }
  ephemeral_block_device {
-    device_name = "xveh"
+    device_name = "xvdi"
     virtual_name = "ephemeral3"
   }
   ephemeral_block_device {
-    device_name = "xvei"
+    device_name = "xvdj"
     virtual_name = "ephemeral4"
   }
   ephemeral_block_device {
-    device_name = "xvej"
+    device_name = "xvdk"
     virtual_name = "ephemeral5"
   }
   ephemeral_block_device {
-    device_name = "xvek"
+    device_name = "xvdl"
     virtual_name = "ephemeral6"
   }
   ephemeral_block_device {
-    device_name = "xvel"
+    device_name = "xvdm"
     virtual_name = "ephemeral7"
   }
 
