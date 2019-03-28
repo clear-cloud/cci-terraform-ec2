@@ -4,6 +4,10 @@
 #
 hostnamectl set-hostname ${appliedhostname}.${domain_name}
 #
+# Install custom additional set-up PRE
+#
+${supplementary_user_data_pre}
+#
 # Install CodeDeploy agent
 #
 yum install -y ruby
@@ -18,7 +22,7 @@ yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/li
 systemctl enable amazon-ssm-agent
 systemctl start amazon-ssm-agent
 #
-# Install custom additional set-up
+# Install custom additional set-up POST
 #
 ${supplementary_user_data}
 
