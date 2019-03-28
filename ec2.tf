@@ -17,37 +17,44 @@ resource "aws_instance" "ec2" {
     volume_type = "gp2"
     volume_size = "${var.root_volume_size}"
   }
-  
+
   ephemeral_block_device {
-    device_name = "xvdf"
+    device_name  = "xvdf"
     virtual_name = "ephemeral0"
   }
+
   ephemeral_block_device {
-    device_name = "xvdg"
+    device_name  = "xvdg"
     virtual_name = "ephemeral1"
   }
+
   ephemeral_block_device {
-    device_name = "xvdh"
+    device_name  = "xvdh"
     virtual_name = "ephemeral2"
   }
- ephemeral_block_device {
-    device_name = "xvdi"
+
+  ephemeral_block_device {
+    device_name  = "xvdi"
     virtual_name = "ephemeral3"
   }
+
   ephemeral_block_device {
-    device_name = "xvdj"
+    device_name  = "xvdj"
     virtual_name = "ephemeral4"
   }
+
   ephemeral_block_device {
-    device_name = "xvdk"
+    device_name  = "xvdk"
     virtual_name = "ephemeral5"
   }
+
   ephemeral_block_device {
-    device_name = "xvdl"
+    device_name  = "xvdl"
     virtual_name = "ephemeral6"
   }
+
   ephemeral_block_device {
-    device_name = "xvdm"
+    device_name  = "xvdm"
     virtual_name = "ephemeral7"
   }
 
@@ -62,8 +69,9 @@ resource "aws_instance" "ec2" {
 
   ami                    = "${var.ami}"
   vpc_security_group_ids = ["${aws_security_group.ec2_sg.id}", "${aws_security_group.ec2_ssh_sg.id}"]
+
   #vpc_security_group_ids = ["${element(split(",",aws_security_group.ec2_sg.id),count.index)}", "${element(split(",",aws_security_group.ec2_ssh_sg.id),count.index)}"]
-  iam_instance_profile   = "${aws_iam_instance_profile.ec2_profile.id}"
+  iam_instance_profile = "${aws_iam_instance_profile.ec2_profile.id}"
 
   private_ip = "${lookup(var.ips,count.index,)}"
 
@@ -88,10 +96,11 @@ data "template_file" "userdata" {
   count    = "${var.count}"
 
   vars {
-    appliedhostname         = "${var.hostname_prefix}${format("%03d", count.index + 1 + var.hostname_offset)}"
-    domain_name             = "${var.domain_name}"
-    environment             = "${var.environment}"
-    supplementary_user_data = "${var.supplementary_user_data}"
-    aws_region              = "${var.aws_region}"
+    appliedhostname             = "${var.hostname_prefix}${format("%03d", count.index + 1 + var.hostname_offset)}"
+    domain_name                 = "${var.domain_name}"
+    environment                 = "${var.environment}"
+    supplementary_user_data     = "${var.supplementary_user_data}"
+    aws_region                  = "${var.aws_region}"
+    supplementary_user_data_pre = "${var.supplementary_user_data_pre}"
   }
 }

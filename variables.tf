@@ -1,9 +1,11 @@
 variable "build_ref" {
   description = "Build Reference, allows for creating unique names per build"
 }
+
 variable "tier" {
   default = "tier"
 }
+
 variable "ips" {
   type    = "map"
   default = {}
@@ -76,10 +78,12 @@ variable "supplementary_user_data" {
   description = "Supplementary shell script commands for adding to user data"
   default     = ""
 }
+
 variable "supplementary_user_data_pre" {
   description = "Supplementary shell script commands for adding to user data.Runs at start of userdata"
   default     = "#"
 }
+
 #
 # Vars for optional IAM policiees
 #
@@ -92,9 +96,3 @@ variable "iams3ropolicy" {
   description = "attach Global Role arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
   default     = "1"
 }
-
-
-
-
-
-
