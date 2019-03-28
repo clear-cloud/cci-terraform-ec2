@@ -4,7 +4,7 @@
 
 resource "aws_iam_instance_profile" "ec2_profile" {
   depends_on = ["aws_iam_role.ec2_role"]
-  name       = "ec2.ec2-profile.${var.environment}.${count.index + var.hostname_offset}"
+  name       = "ec2.ec2-profile.${var.environment}.${var.build_ref}.${count.index + var.hostname_offset}"
   role       = "${aws_iam_role.ec2_role.name}"
 }
 

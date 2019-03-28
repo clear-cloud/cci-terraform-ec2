@@ -1,3 +1,6 @@
+variable "build_ref" {
+  description = "Build Reference, allows for creating unique names per build"
+}
 variable "tier" {
   default = "tier"
 }
