@@ -12,7 +12,7 @@ resource "aws_security_group_rule" "sshaccess" {
   to_port                  = "22"
   protocol                 = "TCP"
   source_security_group_id = "${element(split(",", var.ssh_access_sgs),count.index)}"
-  security_group_id        = "${element(split(aws_security_group.ec2_ssh_sg.id), count.index)}" 
+  security_group_id        = "${element(aws_security_group.ec2_ssh_sg.id, count.index)}" 
 
 #"${aws_security_group.ec2_ssh_sg.id}"
 }
@@ -30,6 +30,6 @@ resource "aws_security_group_rule" "ec2_self_ingress" {
   protocol                 = "-1"
   #source_security_group_id = "${aws_security_group.ec2_sg.id}"
   #security_group_id        = "${aws_security_group.ec2_sg.id}"
-  source_security_group_id = "${element(split(aws_security_group.ec2_sg.id), count.index)}"
-  security_group_id        = "${element(split(aws_security_group.ec2_sg.id), count.index)}"
+  source_security_group_id = "${element(aws_security_group.ec2_sg.id, count.index)}"
+  security_group_id        = "${element(aws_security_group.ec2_sg.id, count.index)}"
 }
