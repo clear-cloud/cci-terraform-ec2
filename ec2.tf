@@ -61,10 +61,10 @@ resource "aws_instance" "ec2" {
   user_data = "${element(data.template_file.userdata.*.rendered, count.index)}"
 
   #
-  # Apply userdata and AMI only once
+  # Apply userdata and AMI only once. Ignore EBS optimized changes.
   #  
   lifecycle {
-    ignore_changes = ["user_data", "ami", "ephemeral_block_device"]
+    ignore_changes = ["ebs_optimized", "user_data", "ami", "ephemeral_block_device"]
   }
 
   ami                    = "${var.ami}"
