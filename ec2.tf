@@ -80,6 +80,7 @@ resource "aws_instance" "ec2" {
   #-----------------------------------------------------------------
   tags {
     Name            = "${var.hostname_prefix}${format("%03d", count.index + 1 + var.hostname_offset)}"
+    "hostname"      = "${var.hostname_prefix}${format("%03d", count.index + 1 + var.hostname_offset)}"
     "environment"   = "${var.environment}"
     "contact"       = "${var.contact}"
     "orchestration" = "${var.orchestration}"

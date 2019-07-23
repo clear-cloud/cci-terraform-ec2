@@ -10,6 +10,7 @@ resource "aws_ebs_volume" "vol2" {
   encrypted         = "${var.encrypted}"
 
   tags {
+    "hostname"      = "${var.hostname_prefix}${format("%03d", count.index + 1 + var.hostname_offset)}"
     "Environment"   = "${var.environment}"
     "Contact"       = "${var.contact}"
     "Orchestration" = "${var.orchestration}"
